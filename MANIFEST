@@ -1,5 +1,6 @@
 Build.PL
 Changes
+INSTALL
 lib/Math/Random/OO.pm
 lib/Math/Random/OO/Bootstrap.pm
 lib/Math/Random/OO/Normal.pm
@@ -16,5 +17,7 @@ t/02-Uniform.t
 t/03-UniformInt.t
 t/04-Normal.t
 t/06-Bootstrap.t
-t/99-factory-functions.t
+t/50-factory-function.t
+t/98_pod.t
+t/99_pod_coverage.t
 Todo
