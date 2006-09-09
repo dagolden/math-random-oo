@@ -6,7 +6,6 @@ use blib;
 # Math::Random::OO  
 
 use Test::More tests => 6;
-use Test::Exception;
 
 my @fcns;
 BEGIN { @fcns = qw (Uniform UniformInt Normal Bootstrap) }

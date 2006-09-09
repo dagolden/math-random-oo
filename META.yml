@@ -19,17 +19,17 @@ requires:
 provides:
   Math::Random::OO:
     file: lib/Math/Random/OO.pm
-    version: 0.17
+    version: 0.18
   Math::Random::OO::Bootstrap:
     file: lib/Math/Random/OO/Bootstrap.pm
-    version: 0.17
+    version: 0.18
   Math::Random::OO::Normal:
     file: lib/Math/Random/OO/Normal.pm
-    version: 0.17
+    version: 0.18
   Math::Random::OO::Uniform:
     file: lib/Math/Random/OO/Uniform.pm
-    version: 0.17
+    version: 0.18
   Math::Random::OO::UniformInt:
     file: lib/Math/Random/OO/UniformInt.pm
-    version: 0.17
+    version: 0.18
 generated_by: Module::Build version 0.2703
