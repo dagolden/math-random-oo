@@ -33,6 +33,7 @@ DESCRIPTION
 
 USAGE
   Factory Functions
+
      use Math::Random::OO qw( Uniform UniformInt Normal Bootstrap );
      $uniform = Uniform(-1,1);
      $uni_int = UniformInt(1,6);
@@ -42,35 +43,37 @@ USAGE
     In addition to defining the abstract interface for subclasses, this
     module imports subclasses and exports factory functions upon request to
     simplify creating many random number generators at once without typing
-    "Math::Random::OO::Subclass->new()" each time. The factory function
+    `Math::Random::OO::Subclass->new()' each time. The factory function
     names are the same as the suffix of the subclass following
-    "Math::Random::OO". When called, they pass their arguments directly to
-    the "new" constructor method of the corresponding subclass and return a
+    `Math::Random::OO'. When called, they pass their arguments directly to
+    the `new' constructor method of the corresponding subclass and return a
     new object of the subclass type. Supported functions and their
     subclasses include:
 
-    *   "Uniform" -- Math::Random::OO::Uniform (uniform distribution over a
+    *   `Uniform' -- Math::Random::OO::Uniform (uniform distribution over a
         range)
 
-    *   "UniformInt" -- Math::Random::OO::UniformInt (uniform distribution
+    *   `UniformInt' -- Math::Random::OO::UniformInt (uniform distribution
         of integers over a range)
 
-    *   "Normal" -- Math::Random::OO::Normal (normal distribution with
+    *   `Normal' -- Math::Random::OO::Normal (normal distribution with
         specified mean and standard deviation)
 
-    *   "Bootstrap" -- Math::Random::OO::Bootstrap (bootstrap resampling
+    *   `Bootstrap' -- Math::Random::OO::Bootstrap (bootstrap resampling
         from a non-parameteric distribution)
 
 INTERFACE
     All Math::Random::OO subclasses must follow a standard interface. They
-    must provide a "new" method, a "seed" method, and a "next" method.
+    must provide a `new' method, a `seed' method, and a `next' method.
     Specific details are left to each interface.
 
-  "new"
+  `new'
+
     This is the standard constructor. Each subclass will define parameters
     specific to the subclass.
 
-  "seed"
+  `seed'
+
      $prng->seed( @seeds );
 
     This method takes seed (or list of seeds) and uses it to set the initial
@@ -79,7 +82,8 @@ INTERFACE
     acceptable. Generators requiring a single seed must use the first value
     in the list.
 
-  "next"
+  `next'
+
      $rnd = $prng->next();
 
     This method returns the next random number from the random number
@@ -116,4 +120,3 @@ SEE ALSO
     Math::Random::MT -- The Mersenne Twister PRNG (good and fast)
     Math::TrulyRandom -- an interface to random numbers from interrupt
     timing discrepancies
-

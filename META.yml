@@ -1,6 +1,6 @@
 ---
 name: Math-Random-OO
-version: 0.15
+version: 0.16
 author:
   - David A Golden <dagolden@cpan.org>
 abstract: |-
@@ -10,27 +10,25 @@ license: perl
 requires:
   Attribute::Util: 0.02
   Params::Validate: 0.76
-  perl: 5.006
-build_requires:
-  Test::Distribution: 1.18
   Test::Exception: 0.2
   Test::MockRandom: 0.95
   Test::More: 0.47
   Test::Number::Delta: 0.14
+  perl: 5.006
 provides:
   Math::Random::OO:
     file: lib/Math/Random/OO.pm
-    version: 0.15
+    version: 0.16
   Math::Random::OO::Bootstrap:
     file: lib/Math/Random/OO/Bootstrap.pm
-    version: 0.15
+    version: 0.16
   Math::Random::OO::Normal:
     file: lib/Math/Random/OO/Normal.pm
-    version: 0.15
+    version: 0.16
   Math::Random::OO::Uniform:
     file: lib/Math/Random/OO/Uniform.pm
-    version: 0.15
+    version: 0.16
   Math::Random::OO::UniformInt:
     file: lib/Math/Random/OO/UniformInt.pm
-    version: 0.15
-generated_by: Module::Build version 0.2701
+    version: 0.16
+generated_by: Module::Build version 0.2702

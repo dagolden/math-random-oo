@@ -7,7 +7,6 @@ WriteMakefile
           'PREREQ_PM' => {
                            'Attribute::Util' => '0.02',
                            'Params::Validate' => '0.76',
-                           'Test::Distribution' => '1.18',
                            'Test::Exception' => '0.2',
                            'Test::MockRandom' => '0.95',
                            'Test::More' => '0.47',

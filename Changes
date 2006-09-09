@@ -1,5 +1,8 @@
 Revision history for Perl module Math::Random::OO
 
+0.16 Mon Aug  1 11:10:28 EDT 2005
+    - build_requires moved to requires to work around CPANPLUS bug
+
 0.15 Thu Jun  9 15:59:11 EDT 2005
     - removed pod/podcoverage/distribution tests to minimize dependencies
 

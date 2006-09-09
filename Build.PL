@@ -10,11 +10,12 @@ Module::Build->new
         perl => 5.006,
         Attribute::Util => 0.02,
         Params::Validate => 0.76,
-    },
-    build_requires => {
+        # build requires
         Test::Exception => 0.20,
         Test::MockRandom => 0.95,
         Test::More => 0.47,
         Test::Number::Delta => 0.14,
+    },
+    build_requires => {
     },
 	)->create_build_script;
