@@ -1,6 +1,6 @@
 Revision history for Perl module Math::Random::OO
 
-0.17 
+0.17 Thu Dec 15 01:39:14 EST 2005
     - added missing Class::Accessor::Fast dependency to Build.PL
     - removed Test::Exception and Attribute::Util dependencies from
       tests and code
