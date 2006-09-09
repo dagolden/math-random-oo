@@ -2,18 +2,17 @@
 use ExtUtils::MakeMaker;
 WriteMakefile
 (
+          'PL_FILES' => {},
+          'INSTALLDIRS' => 'site',
           'NAME' => 'Math::Random::OO',
+          'EXE_FILES' => [],
           'VERSION_FROM' => 'lib/Math/Random/OO.pm',
           'PREREQ_PM' => {
-                           'Attribute::Util' => '0.02',
-                           'Params::Validate' => '0.76',
-                           'Test::Exception' => '0.2',
-                           'Test::MockRandom' => '0.95',
                            'Test::More' => '0.47',
-                           'Test::Number::Delta' => '0.14'
-                         },
-          'INSTALLDIRS' => 'site',
-          'EXE_FILES' => [],
-          'PL_FILES' => {}
+                           'Test::Number::Delta' => '0.14',
+                           'Params::Validate' => '0.76',
+                           'Test::MockRandom' => '0.95',
+                           'Class::Accessor::Fast' => '0.18'
+                         }
         )
 ;

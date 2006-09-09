@@ -2,11 +2,10 @@ package Math::Random::OO;
 use 5.006;
 use strict;
 use warnings;
-our $VERSION = "0.16";
+our $VERSION = "0.17";
 
 # Required modules
 use Carp;
-use Attribute::Util;
 
 #--------------------------------------------------------------------------#
 # main pod documentation 
@@ -149,7 +148,7 @@ Generators requiring a single seed must use the first value in the list.
 
 =cut
 
-sub seed: Abstract;
+sub seed { die "call to abstract method 'seed'" }
 
 #--------------------------------------------------------------------------#
 # rand()
@@ -164,7 +163,7 @@ It does not take (and must not use) any parameters.
 
 =cut
 
-sub next: Abstract;
+sub next { die "call to abstract method 'next'" }
 
 1; #this line is important and will help the module return a true value
 __END__

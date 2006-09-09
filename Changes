@@ -1,5 +1,10 @@
 Revision history for Perl module Math::Random::OO
 
+0.17 
+    - added missing Class::Accessor::Fast dependency to Build.PL
+    - removed Test::Exception and Attribute::Util dependencies from
+      tests and code
+
 0.16 Mon Aug  1 11:10:28 EDT 2005
     - build_requires moved to requires to work around CPANPLUS bug
 

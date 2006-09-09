@@ -1,16 +1,17 @@
 ---
 name: Math-Random-OO
-version: 0.16
+version: 0.17
 author:
   - David A Golden <dagolden@cpan.org>
 abstract: |-
   Consistent object-oriented interface for generating random
   numbers
 license: perl
+resources:
+  license: http://dev.perl.org/licenses/
 requires:
-  Attribute::Util: 0.02
+  Class::Accessor::Fast: 0.18
   Params::Validate: 0.76
-  Test::Exception: 0.2
   Test::MockRandom: 0.95
   Test::More: 0.47
   Test::Number::Delta: 0.14
@@ -18,17 +19,17 @@ requires:
 provides:
   Math::Random::OO:
     file: lib/Math/Random/OO.pm
-    version: 0.16
+    version: 0.17
   Math::Random::OO::Bootstrap:
     file: lib/Math/Random/OO/Bootstrap.pm
-    version: 0.16
+    version: 0.17
   Math::Random::OO::Normal:
     file: lib/Math/Random/OO/Normal.pm
-    version: 0.16
+    version: 0.17
   Math::Random::OO::Uniform:
     file: lib/Math/Random/OO/Uniform.pm
-    version: 0.16
+    version: 0.17
   Math::Random::OO::UniformInt:
     file: lib/Math/Random/OO/UniformInt.pm
-    version: 0.16
-generated_by: Module::Build version 0.2702
+    version: 0.17
+generated_by: Module::Build version 0.2703

@@ -48,7 +48,6 @@ BEGIN {
 }
 
 use Test::More tests => (5 + $test_program);
-use Test::Exception;
 use Test::Number::Delta within => 1e-5;
 use Test::MockRandom 'Math::Random::OO::Normal';
 BEGIN { Test::MockRandom->export_srand_to('Math::Random::OO::Normal') }
@@ -59,7 +58,8 @@ my $obj = Math::Random::OO::Normal->new ();
 isa_ok ($obj, 'Math::Random::OO::Normal');
 isa_ok ($obj->new, 'Math::Random::OO::Normal');
 can_ok ($obj, qw( seed next ));
-lives_ok { $obj->next } 'next handles 0 correctly?';
+eval { $obj->next };
+is( $@, "", 'next handles 0 correctly?');
 
 for my $case ( @$test_array ) {
     ok( $obj = $obj->new(@{$case->{new_args}}), 

@@ -2,7 +2,7 @@ package Math::Random::OO::Normal;
 use 5.006;
 use strict;
 use warnings;
-our $VERSION = "0.16";
+our $VERSION = "0.17";
 
 # Required modules
 use Carp;

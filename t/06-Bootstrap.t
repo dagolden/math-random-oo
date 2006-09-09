@@ -36,13 +36,12 @@ BEGIN {
 }
 
 use Test::More tests => (5 + $test_program);
-use Test::Exception;
 use Test::Number::Delta within => 1e-5;
 BEGIN { use_ok( 'Math::Random::OO::Bootstrap' ); }
 
 my $obj;
-dies_ok { Math::Random::OO::Bootstrap->new() } 
-    'does new die with no arguments?';
+eval { Math::Random::OO::Bootstrap->new() };
+ok( $@, 'does new die with no arguments?' );
 $obj = Math::Random::OO::Bootstrap->new(1);
 isa_ok ($obj, 'Math::Random::OO::Bootstrap');
 isa_ok ($obj->new(1), 'Math::Random::OO::Bootstrap');

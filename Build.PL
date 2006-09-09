@@ -8,10 +8,9 @@ Module::Build->new
       license         => 'perl',
     requires => {
         perl => 5.006,
-        Attribute::Util => 0.02,
+        Class::Accessor::Fast => 0.18,
         Params::Validate => 0.76,
         # build requires
-        Test::Exception => 0.20,
         Test::MockRandom => 0.95,
         Test::More => 0.47,
         Test::Number::Delta => 0.14,
