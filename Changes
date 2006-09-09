@@ -1,0 +1,28 @@
+Revision history for Perl module Math::Random::OO
+
+0.15 Thu Jun  9 15:59:11 EDT 2005
+    - removed pod/podcoverage/distribution tests to minimize dependencies
+
+0.14 Tue Jun  7 18:10:09 EDT 2005
+    - fixed dependencies in Build.PL
+    - changed Makefile compatibility
+
+0.13 Wed Mar  9 06:30:16 EST 2005
+    - added pod and pod coverage testing
+
+0.12 Wed Feb  2 22:50:30 EST 2005
+    - fixed test suite for new version of Test::MockRandom
+    - improved test coverage
+
+0.11 Tue Jan  4 07:20:38 EST 2005
+    - Fixed POD for better hyperlinking on CPAN
+    - Refactored tests
+    - Added Test::Distribution to automated tests (but not required
+      for users)
+    - Replaced Test::Float with Test::Number::Delta
+
+0.10 Tue Dec 28 12:22:04 EST 2004
+    - initial public release
+
+0.01 Tue Dec 14 13:36:52 2004
+	- original version; created by ExtUtils::ModuleMaker::TT

@@ -1,0 +1,20 @@
+Build.PL
+Changes
+lib/Math/Random/OO.pm
+lib/Math/Random/OO/Bootstrap.pm
+lib/Math/Random/OO/Normal.pm
+lib/Math/Random/OO/Uniform.pm
+lib/Math/Random/OO/UniformInt.pm
+LICENSE
+Makefile.PL
+MANIFEST			This list of files
+MANIFEST.SKIP
+META.yml
+README
+t/01-OO.t
+t/02-Uniform.t
+t/03-UniformInt.t
+t/04-Normal.t
+t/06-Bootstrap.t
+t/99-factory-functions.t
+Todo
