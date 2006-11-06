@@ -1,5 +1,8 @@
 Revision history for Perl module Math::Random::OO
 
+0.20
+    - Cleaned up pod coverage test
+
 0.19 Fri Jul 21 07:00:34 EDT 2006
     - Whee!  Added back pod/coverage tests in a sane way.
 
