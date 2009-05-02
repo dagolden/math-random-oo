@@ -105,7 +105,7 @@ first seed value matters.
 
 sub seed {
 	my $self = shift;
-    srand(@_);
+    srand($_[0]);
 }
 
 
