@@ -26,7 +26,7 @@ distribution
       Math::Random::OO::Normal->new(),     # mean 0, stdev 1
       Math::Random::OO::Normal->new(5),    # mean 5, stdev 1
       Math::Random::OO::Normal->new(1,3);  # mean 1, stdev 3
-  $_->seed(0.42) for @prngs;
+  $_->seed(42) for @prngs;
   print( $_->next() . "\n" ) for @prngs;
 
 =head1 DESCRIPTION

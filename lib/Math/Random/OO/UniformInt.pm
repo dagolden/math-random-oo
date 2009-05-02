@@ -26,7 +26,7 @@ probability
       Math::Random::OO::UniformInt->new(),     # 0 or 1
       Math::Random::OO::UniformInt->new(5),    # 0, 1, 2, 3, 4, or 5
       Math::Random::OO::UniformInt->new(-1,1); # -1, 0, or 1
-  $_->seed(0.42) for @prngs;
+  $_->seed(42) for @prngs;
   print( $_->next() . "\n" ) for @prngs;
   
 =head1 DESCRIPTION

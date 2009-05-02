@@ -26,7 +26,7 @@ numbers
   use Math::Random::OO::Normal;
   push @prngs, Math::Random::OO::Normal->new(0,2);
  
-  $_->seed(0.23) for (@prngs);
+  $_->seed(23) for (@prngs);
   print( $_->next(), "\n") for (@prngs);
 
 =head1 DESCRIPTION
@@ -145,6 +145,9 @@ This method takes seed (or list of seeds) and uses it to set the initial state
 of the random number generator.  As some subclasses may optionally use/require
 a list of seeds, the interface mandates that a list must be acceptable.
 Generators requiring a single seed must use the first value in the list.
+
+As seeds may be passed to the built-in C<srand()> function, they may be 
+truncated as integers, so 0.12 and 0.34 would be the same seed.
 
 =cut
 

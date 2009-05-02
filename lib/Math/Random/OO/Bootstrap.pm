@@ -24,7 +24,7 @@ resampling from a non-parametric distibution
   use Math::Random::OO::Bootstrap;
   @sample = qw( 2 3 3 4 4 5 5 6 6 7 );
   $prng = Math::Random::OO::Bootstrap->new(@sample);
-  $prng->seed(0.42);
+  $prng->seed(42);
   $prng->next() # draws randomly from the sample
   
 =head1 DESCRIPTION

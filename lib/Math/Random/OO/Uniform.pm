@@ -26,7 +26,7 @@ distribution
       Math::Random::OO::Uniform->new(),     # range [0,1)
       Math::Random::OO::Uniform->new(5),    # range [0,5)
       Math::Random::OO::Uniform->new(-1,1); # range [-1,1)
-  $_->seed(0.42) for @prngs;
+  $_->seed(42) for @prngs;
   print( $_->next() . "\n" ) for @prngs;
   
 =head1 DESCRIPTION
