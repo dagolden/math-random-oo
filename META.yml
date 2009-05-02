@@ -1,6 +1,6 @@
 ---
 name: Math-Random-OO
-version: 0.19
+version: 0.21
 author:
   - 'David A Golden <dagolden@cpan.org>'
 abstract: |-
@@ -19,20 +19,20 @@ requires:
 provides:
   Math::Random::OO:
     file: lib/Math/Random/OO.pm
-    version: 0.19
+    version: 0.21
   Math::Random::OO::Bootstrap:
     file: lib/Math/Random/OO/Bootstrap.pm
-    version: 0.19
+    version: 0.21
   Math::Random::OO::Normal:
     file: lib/Math/Random/OO/Normal.pm
-    version: 0.19
+    version: 0.21
   Math::Random::OO::Uniform:
     file: lib/Math/Random/OO/Uniform.pm
-    version: 0.19
+    version: 0.21
   Math::Random::OO::UniformInt:
     file: lib/Math/Random/OO/UniformInt.pm
-    version: 0.19
-generated_by: Module::Build version 0.2804
+    version: 0.21
+generated_by: Module::Build version 0.3201
 meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.2.html
-  version: 1.2
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4

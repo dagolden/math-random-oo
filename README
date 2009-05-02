@@ -11,7 +11,7 @@ SYNOPSIS
       use Math::Random::OO::Normal;
       push @prngs, Math::Random::OO::Normal->new(0,2);
      
-  $_->seed(0.23) for (@prngs);
+  $_->seed(23) for (@prngs);
       print( $_->next(), "\n") for (@prngs);
 
 DESCRIPTION
@@ -78,6 +78,9 @@ INTERFACE
     use/require a list of seeds, the interface mandates that a list must be
     acceptable. Generators requiring a single seed must use the first value
     in the list.
+
+    As seeds may be passed to the built-in "srand()" function, they may be
+    truncated as integers, so 0.12 and 0.34 would be the same seed.
 
   "next"
      $rnd = $prng->next();
