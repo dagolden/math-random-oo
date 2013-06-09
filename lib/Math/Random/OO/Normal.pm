@@ -85,10 +85,7 @@ It does not take any parameters.
 sub next {
 	my ($self) = @_;
     my $rnd = rand() || 1e-254; # can't have zero for normals
-    # _ltqnorm on (0,1) ranges from about -38 to 8, so we'll use
-    # the bottom half and invert it for the top half
-    my $norm = ( $rnd <= 0.5 ) ? _ltqnorm($rnd) : -( _ltqnorm(1-$rnd) );
-    return $norm * $self->stdev + $self->mean;
+    return _ltqnorm($rnd) * $self->stdev + $self->mean;
 }
 
 #--------------------------------------------------------------------------#
