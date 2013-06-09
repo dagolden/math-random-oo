@@ -105,7 +105,7 @@ range is calculated.  I.e., C<new(-1.2, 3.6)> is equivalent to C<new(-1,3)>.
  $rv = $prng->seed( @seeds );
 
 This method seeds the random number generator.  At the moment, only the
-first seed value matters.
+first seed value matters.  It should be a positive integer.
 
 =cut
 

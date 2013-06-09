@@ -147,7 +147,8 @@ a list of seeds, the interface mandates that a list must be acceptable.
 Generators requiring a single seed must use the first value in the list.
 
 As seeds may be passed to the built-in C<srand()> function, they may be 
-truncated as integers, so 0.12 and 0.34 would be the same seed.
+truncated as integers, so 0.12 and 0.34 would be the same seed.  Only
+positive integers should be used.
 
 =cut
 

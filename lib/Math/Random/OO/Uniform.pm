@@ -100,7 +100,7 @@ long as you have two parameters, C<new> will put them in the right order).
  $rv = $prng->seed( @seeds );
 
 This method seeds the random number generator.  At the moment, only the
-first seed value matters.
+first seed value matters.  It should be a positive integer.
 
 =cut
 
