@@ -1,6 +1,7 @@
 use 5.006;
 use strict;
 use warnings;
+
 package Math::Random::OO;
 # ABSTRACT: Consistent object-oriented interface for generating random numbers
 # VERSION
@@ -8,7 +9,7 @@ package Math::Random::OO;
 use Carp;
 
 sub import {
-    my ($class, @symbols) = @_;
+    my ( $class, @symbols ) = @_;
     my $caller = caller;
     for (@symbols) {
         no strict 'refs';
@@ -20,7 +21,7 @@ sub import {
 
 sub new {
     my $class = shift;
-    return bless ({}, ref($class) ? ref($class) : $class);
+    return bless( {}, ref($class) ? ref($class) : $class );
 }
 
 sub seed { die "call to abstract method 'seed'" }

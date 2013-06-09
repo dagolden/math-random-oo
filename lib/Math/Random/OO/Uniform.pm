@@ -1,6 +1,7 @@
 use 5.006;
 use strict;
 use warnings;
+
 package Math::Random::OO::Uniform;
 # ABSTRACT: Generates random numbers from the uniform distribution
 # VERSION
@@ -33,7 +34,7 @@ long as you have two parameters, C<new> will put them in the right order).
 
 {
     my $param_spec = {
-        low => { type => SCALAR },
+        low  => { type => SCALAR },
         high => { type => SCALAR }
     };
 
@@ -44,13 +45,13 @@ long as you have two parameters, C<new> will put them in the right order).
         my $class = shift;
         my $self = bless {}, ref($class) ? ref($class) : $class;
         if ( @_ > 1 ) {
-            my ($low, $high) = sort { $a <=> $b } @_[0,1]; # DWIM
+            my ( $low, $high ) = sort { $a <=> $b } @_[ 0, 1 ]; # DWIM
             $self->low($low);
             $self->high($high);
         }
-        elsif (@_ == 1) {
+        elsif ( @_ == 1 ) {
             $self->low(0);
-            $self->high($_[0]);
+            $self->high( $_[0] );
         }
         else {
             $self->low(0);
@@ -70,8 +71,8 @@ first seed value matters.  It should be a positive integer.
 =cut
 
 sub seed {
-	my $self = shift;
-    srand($_[0]);
+    my $self = shift;
+    srand( $_[0] );
 }
 
 =method C<next>
@@ -84,9 +85,9 @@ It does not take any parameters.
 =cut
 
 sub next {
-	my ($self) = @_;
-    my $rnd = rand($self->high - $self->low) + $self->low;
-    return $rnd;	
+    my ($self) = @_;
+    my $rnd = rand( $self->high - $self->low ) + $self->low;
+    return $rnd;
 }
 
 1;

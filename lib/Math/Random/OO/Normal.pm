@@ -1,6 +1,7 @@
 use 5.006;
 use strict;
 use warnings;
+
 package Math::Random::OO::Normal;
 # ABSTRACT: Generates random numbers from the normal (Gaussian) distribution
 # VERSION
@@ -32,7 +33,7 @@ parameter just in case.)
 
 {
     my $param_spec = {
-        mean => { type => SCALAR },
+        mean  => { type => SCALAR },
         stdev => { type => SCALAR }
     };
 
@@ -43,11 +44,11 @@ parameter just in case.)
         my $class = shift;
         my $self = bless {}, ref($class) ? ref($class) : $class;
         if ( @_ > 1 ) {
-            $self->mean($_[0]);
-            $self->stdev(abs($_[1]));
+            $self->mean( $_[0] );
+            $self->stdev( abs( $_[1] ) );
         }
-        elsif (@_ == 1) {
-            $self->mean($_[0]);
+        elsif ( @_ == 1 ) {
+            $self->mean( $_[0] );
             $self->stdev(1);
         }
         else {
@@ -68,8 +69,8 @@ first seed value matters.  It should be a positive integer.
 =cut
 
 sub seed {
-	my $self = shift;
-    srand($_[0]);
+    my $self = shift;
+    srand( $_[0] );
 }
 
 =method C<next>
@@ -83,7 +84,7 @@ It does not take any parameters.
 =cut
 
 sub next {
-	my ($self) = @_;
+    my ($self) = @_;
     my $rnd = rand() || 1e-254; # can't have zero for normals
     return _ltqnorm($rnd) * $self->stdev + $self->mean;
 }
@@ -96,6 +97,7 @@ sub next {
 # Input checking removed by DAGOLDEN as the input will be prechecked
 #--------------------------------------------------------------------------#
 
+#<<< No perltidy
 sub _ltqnorm {
     # Lower tail quantile for standard normal distribution function.
     #
@@ -154,6 +156,7 @@ sub _ltqnorm {
     return ((((($a[0]*$r+$a[1])*$r+$a[2])*$r+$a[3])*$r+$a[4])*$r+$a[5])*$q /
            ((((($b[0]*$r+$b[1])*$r+$b[2])*$r+$b[3])*$r+$b[4])*$r+1);
 }
+#>>>
 
 1;
 

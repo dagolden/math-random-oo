@@ -1,6 +1,7 @@
 use 5.006;
 use strict;
 use warnings;
+
 package Math::Random::OO::UniformInt;
 # ABSTRACT: Generates random integers with uniform probability
 # VERSION
@@ -34,10 +35,9 @@ range is calculated.  I.e., C<new(-1.2, 3.6)> is equivalent to C<new(-1,3)>.
 
 =cut
 
-
 {
     my $param_spec = {
-        low => { type => SCALAR },
+        low  => { type => SCALAR },
         high => { type => SCALAR }
     };
 
@@ -48,13 +48,13 @@ range is calculated.  I.e., C<new(-1.2, 3.6)> is equivalent to C<new(-1,3)>.
         my $class = shift;
         my $self = bless {}, ref($class) ? ref($class) : $class;
         if ( @_ > 1 ) {
-            my ($low, $high) = sort { $a <=> $b } @_[0,1]; # DWIM
-            $self->low(int($low));
-            $self->high(int($high));
+            my ( $low, $high ) = sort { $a <=> $b } @_[ 0, 1 ]; # DWIM
+            $self->low( int($low) );
+            $self->high( int($high) );
         }
-        elsif (@_ == 1) {
+        elsif ( @_ == 1 ) {
             $self->low(0);
-            $self->high(int($_[0]));
+            $self->high( int( $_[0] ) );
         }
         else {
             $self->low(0);
@@ -74,8 +74,8 @@ first seed value matters.  It should be a positive integer.
 =cut
 
 sub seed {
-	my $self = shift;
-    srand($_[0]);
+    my $self = shift;
+    srand( $_[0] );
 }
 
 =method C<next>
@@ -88,9 +88,9 @@ It does not take any parameters.
 =cut
 
 sub next {
-	my ($self) = @_;
-    my $rnd = int(rand($self->high - $self->low + 1 )) + $self->low;
-    return $rnd;	
+    my ($self) = @_;
+    my $rnd = int( rand( $self->high - $self->low + 1 ) ) + $self->low;
+    return $rnd;
 }
 
 1;

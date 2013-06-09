@@ -1,6 +1,7 @@
 use 5.006;
 use strict;
 use warnings;
+
 package Math::Random::OO::Bootstrap;
 # ABSTRACT: Generate random numbers with bootstrap resampling from a non-parametric distribution
 # VERSION
@@ -53,8 +54,8 @@ It is an error to call C<new> with no arguments.
         if ( @_ == 0 ) {
             croak 'Math::Random::OO::Bootstrap->new() requires an argument';
         }
-        $self->data( ref $_[0] eq 'ARRAY' ? [ @{$_[0]} ] : [ @_ ] );
-        $self->size( scalar @{$self->data} );
+        $self->data( ref $_[0] eq 'ARRAY' ? [ @{ $_[0] } ] : [@_] );
+        $self->size( scalar @{ $self->data } );
         return $self;
     }
 }
@@ -69,10 +70,9 @@ first seed value matters.  It should be a positive integer.
 =cut
 
 sub seed {
-	my $self = shift;
-    srand($_[0]);
+    my $self = shift;
+    srand( $_[0] );
 }
-
 
 =method C<next>
 
@@ -85,9 +85,9 @@ parameters.
 =cut
 
 sub next {
-	my ($self) = @_;
-    my $rnd = int(rand($self->size)); # index 0 to (size-1)
-    return $self->data->[$rnd];	
+    my ($self) = @_;
+    my $rnd = int( rand( $self->size ) ); # index 0 to (size-1)
+    return $self->data->[$rnd];
 }
 
 1;
