@@ -2,6 +2,8 @@ Revision history for Perl module Math::Random::OO
 
 {{$NEXT}}
 
+0.22      2013-06-09 15:07:27 America/New_York
+
     - Removed useless voodoo math [RT#85314]
     - Fixed test bug with negative seeds [RT#86002]
     - Converted to Dist::Zilla
