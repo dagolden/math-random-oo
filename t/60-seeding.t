@@ -8,7 +8,7 @@ use blib;
 use Test::More 'no_plan';
 
 my @classes = qw(Uniform UniformInt Normal); 
-my @seeds = qw/ 0 1 -1 2 /;
+my @seeds = qw/ 0 1 2 3 /;
 
 for my $c (@classes) {
   $c = "Math::Random::OO::$c";
@@ -17,11 +17,11 @@ for my $c (@classes) {
   my @rands;
   for my $s ( @seeds ) {
     $rng->seed($s);
-    push @rands, [ map { $rng->next } 1 .. 5 ];
+    push @rands, [ $s, [map { $rng->next } 1 .. 5] ];
   }
   while ( my $first = shift @rands ) {
     for my $r ( @rands ) {
-      ok( ! eq_array( $first, $r ), "$c\: $first contents differ from $r" );
+      ok( ! eq_array( $first->[1], $r->[1] ), "$c\: contents differ ($first->[0] vs $r->[0])" );
     }
   }
 }
