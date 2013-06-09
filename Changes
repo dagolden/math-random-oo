@@ -2,6 +2,11 @@ Revision history for Perl module Math::Random::OO
 
 {{$NEXT}}
 
+    - Removed useless voodoo math [RT#85314]
+    - Fixed test bug with negative seeds [RT#86002]
+    - Converted to Dist::Zilla
+    - Changed license to Apache 2
+    - Changed bugtracker
 
 0.21 Sat May  2 07:40:03 EDT 2009
     - Fixed major seed() bug (RT#45630)
