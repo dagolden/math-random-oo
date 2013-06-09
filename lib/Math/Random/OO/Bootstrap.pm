@@ -2,7 +2,7 @@ use 5.006;
 use strict;
 use warnings;
 package Math::Random::OO::Bootstrap;
-# ABSTRACT: Generate random numbers with bootstrap resampling from a non-parametric distibution
+# ABSTRACT: Generate random numbers with bootstrap resampling from a non-parametric distribution
 # VERSION
 
 # Required modules

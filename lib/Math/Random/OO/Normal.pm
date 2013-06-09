@@ -99,7 +99,7 @@ sub next {
 # Input checking removed by DAGOLDEN as the input will be prechecked
 #--------------------------------------------------------------------------#
 
-sub _ltqnorm ($) {
+sub _ltqnorm {
     # Lower tail quantile for standard normal distribution function.
     #
     # This function returns an approximation of the inverse cumulative

@@ -14,8 +14,7 @@ sub import {
         no strict 'refs';
         my $subclass = "Math::Random::OO::$_";
         eval "require $subclass";
-        *{"${caller}::$_"} = 
-            eval "sub { return ${subclass}->new(\@_) }";
+        *{"${caller}::$_"} = sub { return ${subclass}->new(@_) };
     }
 }
 
