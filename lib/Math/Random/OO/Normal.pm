@@ -1,8 +1,9 @@
-package Math::Random::OO::Normal;
 use 5.006;
 use strict;
 use warnings;
-our $VERSION = '0.21';
+package Math::Random::OO::Normal;
+# ABSTRACT: Generates random numbers from the normal (Gaussian) distribution
+# VERSION
 
 # Required modules
 use Carp;
@@ -10,46 +11,8 @@ use Params::Validate ':all';
 
 # ISA
 use base qw( Class::Accessor::Fast );
-#--------------------------------------------------------------------------#
-# main pod documentation #####
-#--------------------------------------------------------------------------#
 
-=head1 NAME
-
-Math::Random::OO::Normal - Generates random numbers from the normal (Gaussian)
-distribution
-
-=head1 SYNOPSIS
-
-  use Math::Random::OO::Normal;
-  push @prngs,
-      Math::Random::OO::Normal->new(),     # mean 0, stdev 1
-      Math::Random::OO::Normal->new(5),    # mean 5, stdev 1
-      Math::Random::OO::Normal->new(1,3);  # mean 1, stdev 3
-  $_->seed(42) for @prngs;
-  print( $_->next() . "\n" ) for @prngs;
-
-=head1 DESCRIPTION
-
-This subclass of L<Math::Random::OO> generates random reals from the normal 
-probability distribution, also called the Gaussian or bell-curve distribution.
-
-The module generates random normals from the inverse of the cumulative 
-normal distribution using an approximation algorithm developed by Peter J. 
-Acklam and released into the public domain.  This algorithm claims a
-relative error of less than 1.15e-9 over the entire region.
-
-See http://home.online.no/~pjacklam/notes/invnorm/ for details and discussion.
-
-=head1 USAGE
-
-=cut
-
-#--------------------------------------------------------------------------#
-# new()
-#--------------------------------------------------------------------------#
-
-=head2 C<new>
+=method C<new>
 
  $prng1 = Math::Random::OO::Normal->new();
  $prng2 = Math::Random::OO::Normal->new($mean);
@@ -95,11 +58,7 @@ parameter just in case.)
     }
 }
 
-#--------------------------------------------------------------------------#
-# seed()
-#--------------------------------------------------------------------------#
-
-=head2 C<seed>
+=method C<seed>
 
  $rv = $prng->seed( @seeds );
 
@@ -113,12 +72,8 @@ sub seed {
     srand($_[0]);
 }
 
+=method C<next>
 
-#--------------------------------------------------------------------------#
-# next()
-#--------------------------------------------------------------------------#
-
-=head2 C<next>
 
  $rnd = $prng->next();
 
@@ -203,35 +158,30 @@ sub _ltqnorm ($) {
            ((((($b[0]*$r+$b[1])*$r+$b[2])*$r+$b[3])*$r+$b[4])*$r+1);
 }
 
-1; #this line is important and will help the module return a true value
+1;
+
 __END__
 
-=head1 BUGS
+=head1 SYNOPSIS
 
-Please report bugs using the CPAN Request Tracker at 
+  use Math::Random::OO::Normal;
+  push @prngs,
+      Math::Random::OO::Normal->new(),     # mean 0, stdev 1
+      Math::Random::OO::Normal->new(5),    # mean 5, stdev 1
+      Math::Random::OO::Normal->new(1,3);  # mean 1, stdev 3
+  $_->seed(42) for @prngs;
+  print( $_->next() . "\n" ) for @prngs;
 
-http://rt.cpan.org/NoAuth/Bugs.html?Dist=Math-Random-OO
+=head1 DESCRIPTION
 
-=head1 AUTHOR
+This subclass of L<Math::Random::OO> generates random reals from the normal 
+probability distribution, also called the Gaussian or bell-curve distribution.
 
-David A. Golden (DAGOLDEN)
+The module generates random normals from the inverse of the cumulative 
+normal distribution using an approximation algorithm developed by Peter J. 
+Acklam and released into the public domain.  This algorithm claims a
+relative error of less than 1.15e-9 over the entire region.
 
-dagolden@dagolden.com
-
-http://dagolden.com/
-
-=head1 COPYRIGHT
-
-Copyright (c) 2004 by David A. Golden
-
-This program is free software; you can redistribute
-it and/or modify it under the same terms as Perl itself.
-
-The full text of the license can be found in the
-LICENSE file included with this module.
-
-=head1 SEE ALSO
-
-L<Math::Random::OO>
+See http://home.online.no/~pjacklam/notes/invnorm/ for details and discussion.
 
 =cut

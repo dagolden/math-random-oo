@@ -1,20 +1,36 @@
-package Math::Random::OO;
 use 5.006;
 use strict;
 use warnings;
-our $VERSION = '0.21';
+package Math::Random::OO;
+# ABSTRACT: Consistent object-oriented interface for generating random numbers
+# VERSION
 
-# Required modules
 use Carp;
 
-#--------------------------------------------------------------------------#
-# main pod documentation 
-#--------------------------------------------------------------------------#
+sub import {
+    my ($class, @symbols) = @_;
+    my $caller = caller;
+    for (@symbols) {
+        no strict 'refs';
+        my $subclass = "Math::Random::OO::$_";
+        eval "require $subclass";
+        *{"${caller}::$_"} = 
+            eval "sub { return ${subclass}->new(\@_) }";
+    }
+}
 
-=head1 NAME
+sub new {
+    my $class = shift;
+    return bless ({}, ref($class) ? ref($class) : $class);
+}
 
-Math::Random::OO - Consistent object-oriented interface for generating random
-numbers
+sub seed { die "call to abstract method 'seed'" }
+
+sub next { die "call to abstract method 'next'" }
+
+1;
+
+__END__
 
 =head1 SYNOPSIS
 
@@ -47,12 +63,6 @@ subclass object and which represent a stochastic variable with a particular
 probability distribution.
 
 =head1 USAGE
-
-=cut
-
-#--------------------------------------------------------------------------#
-# import()
-#--------------------------------------------------------------------------#
 
 =head2 Factory Functions
 
@@ -94,48 +104,15 @@ a non-parameteric distribution)
 
 =back
 
-=cut
-
-sub import {
-    my ($class, @symbols) = @_;
-    my $caller = caller;
-    for (@symbols) {
-        no strict 'refs';
-        my $subclass = "Math::Random::OO::$_";
-        eval "require $subclass";
-        *{"${caller}::$_"} = 
-            eval "sub { return ${subclass}->new(\@_) }";
-    }
-}
-
 =head1 INTERFACE
 
 All Math::Random::OO subclasses must follow a standard interface.  They must
 provide a C<new> method, a C<seed> method, and a C<next> method.  Specific 
 details are left to each interface.
 
-=cut
-
-#--------------------------------------------------------------------------#
-# new()
-#--------------------------------------------------------------------------#
-
 =head2 C<new>
 
-This is the standard constructor.  Each subclass will define parameters 
-specific to the subclass.  
-
-=cut
-
-sub new {
-    my $class = shift;
-    return bless ({}, ref($class) ? ref($class) : $class);
-}
-
-
-#--------------------------------------------------------------------------#
-# seed()
-#--------------------------------------------------------------------------#
+This is the standard constructor.  Each subclass will define parameters specific to the subclass.
 
 =head2 C<seed>
 
@@ -150,48 +127,12 @@ As seeds may be passed to the built-in C<srand()> function, they may be
 truncated as integers, so 0.12 and 0.34 would be the same seed.  Only
 positive integers should be used.
 
-=cut
-
-sub seed { die "call to abstract method 'seed'" }
-
-#--------------------------------------------------------------------------#
-# rand()
-#--------------------------------------------------------------------------#
-
 =head2 C<next>
 
  $rnd = $prng->next();
 
 This method returns the next random number from the random number generator.
 It does not take (and must not use) any parameters. 
-
-=cut
-
-sub next { die "call to abstract method 'next'" }
-
-1; #this line is important and will help the module return a true value
-__END__
-
-=head1 BUGS
-
-Please report bugs using the CPAN Request Tracker at 
-http://rt.cpan.org/NoAuth/Bugs.html?Dist=Math-Random-OO
-
-=head1 AUTHOR
-
-David A Golden <dagolden@cpan.org>
-
-http://dagolden.com/
-
-=head1 COPYRIGHT
-
-Copyright (c) 2004, 2005 by David A. Golden
-
-This program is free software; you can redistribute
-it and/or modify it under the same terms as Perl itself.
-
-The full text of the license can be found in the
-LICENSE file included with this module.
 
 =head1 SEE ALSO
 

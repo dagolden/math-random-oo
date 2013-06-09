@@ -1,47 +1,18 @@
-package Math::Random::OO::Bootstrap;
 use 5.006;
 use strict;
 use warnings;
-our $VERSION = '0.21';
+package Math::Random::OO::Bootstrap;
+# ABSTRACT: Generate random numbers with bootstrap resampling from a non-parametric distibution
+# VERSION
 
 # Required modules
 use Carp;
-use Params::Validate ':all';
+use Params::Validate 0.76 ':all';
 
 # ISA
 use base qw( Class::Accessor::Fast );
-#--------------------------------------------------------------------------#
-# main pod documentation #####
-#--------------------------------------------------------------------------#
 
-=head1 NAME
-
-Math::Random::OO::Bootstrap - Generate random numbers with bootstrap 
-resampling from a non-parametric distibution
-
-=head1 SYNOPSIS
-
-  use Math::Random::OO::Bootstrap;
-  @sample = qw( 2 3 3 4 4 5 5 6 6 7 );
-  $prng = Math::Random::OO::Bootstrap->new(@sample);
-  $prng->seed(42);
-  $prng->next() # draws randomly from the sample
-  
-=head1 DESCRIPTION
-
-This subclass of L<Math::Random::OO> generates random numbers with bootstrap
-resampling (i.e. resampling with replacement) from a given set of observations.
-Each item in the sample array is drawn with equal probability.
-
-=head1 USAGE
-
-=cut
-
-#--------------------------------------------------------------------------#
-# new()
-#--------------------------------------------------------------------------#
-
-=head2 C<new>
+=method C<new>
 
  $prng = Math::Random::OO::Bootstrap->new(@sample);
  $prng = Math::Random::OO::Bootstrap->new(\@sample);
@@ -67,7 +38,6 @@ It is an error to call C<new> with no arguments.
 
 =cut
 
-
 {
     my $param_spec = {
         data => { type => ARRAYREF },
@@ -89,12 +59,7 @@ It is an error to call C<new> with no arguments.
     }
 }
 
-
-#--------------------------------------------------------------------------#
-# seed()
-#--------------------------------------------------------------------------#
-
-=head2 C<seed>
+=method C<seed>
 
  $rv = $prng->seed( @seeds );
 
@@ -109,11 +74,7 @@ sub seed {
 }
 
 
-#--------------------------------------------------------------------------#
-# next()
-#--------------------------------------------------------------------------#
-
-=head2 C<next>
+=method C<next>
 
  $rnd = $prng->next();
 
@@ -129,36 +90,23 @@ sub next {
     return $self->data->[$rnd];	
 }
 
-1; #this line is important and will help the module return a true value
+1;
+
 __END__
 
-=head1 BUGS
+=head1 SYNOPSIS
 
-Please report bugs using the CPAN Request Tracker at 
+  use Math::Random::OO::Bootstrap;
+  @sample = qw( 2 3 3 4 4 5 5 6 6 7 );
+  $prng = Math::Random::OO::Bootstrap->new(@sample);
+  $prng->seed(42);
+  $prng->next() # draws randomly from the sample
+  
+=head1 DESCRIPTION
 
-http://rt.cpan.org/NoAuth/Bugs.html?Dist=Math-Random-OO
-
-=head1 AUTHOR
-
-David A. Golden (DAGOLDEN)
-
-dagolden@dagolden.com
-
-http://dagolden.com/
-
-=head1 COPYRIGHT
-
-Copyright (c) 2004 by David A. Golden
-
-This program is free software; you can redistribute
-it and/or modify it under the same terms as Perl itself.
-
-The full text of the license can be found in the
-LICENSE file included with this module.
-
-
-=head1 SEE ALSO
-
-L<Math::Random::OO>
+This subclass of L<Math::Random::OO> generates random numbers with bootstrap
+resampling (i.e. resampling with replacement) from a given set of observations.
+Each item in the sample array is drawn with equal probability.
 
 =cut
+

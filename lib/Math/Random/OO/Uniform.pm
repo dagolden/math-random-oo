@@ -1,8 +1,9 @@
-package Math::Random::OO::Uniform;
 use 5.006;
 use strict;
 use warnings;
-our $VERSION = '0.21';
+package Math::Random::OO::Uniform;
+# ABSTRACT: Generates random numbers from the uniform distribution
+# VERSION
 
 # Required modules
 use Carp;
@@ -10,39 +11,8 @@ use Params::Validate ':all';
 
 # ISA
 use base qw( Class::Accessor::Fast );
-#--------------------------------------------------------------------------#
-# main pod documentation #####
-#--------------------------------------------------------------------------#
 
-=head1 NAME
-
-Math::Random::OO::Uniform - Generates random numbers from the uniform
-distribution
-
-=head1 SYNOPSIS
-
-  use Math::Random::OO::Uniform;
-  push @prngs,
-      Math::Random::OO::Uniform->new(),     # range [0,1)
-      Math::Random::OO::Uniform->new(5),    # range [0,5)
-      Math::Random::OO::Uniform->new(-1,1); # range [-1,1)
-  $_->seed(42) for @prngs;
-  print( $_->next() . "\n" ) for @prngs;
-  
-=head1 DESCRIPTION
-
-This subclass of L<Math::Random::OO> generates random reals from a uniform
-probability distribution.
-
-=head1 USAGE
-
-=cut
-
-#--------------------------------------------------------------------------#
-# new()
-#--------------------------------------------------------------------------#
-
-=head2 C<new>
+=method C<new>
 
  $prng1 = Math::Random::OO::Uniform->new();
  $prng2 = Math::Random::OO::Uniform->new($high);
@@ -90,12 +60,7 @@ long as you have two parameters, C<new> will put them in the right order).
     }
 }
 
-
-#--------------------------------------------------------------------------#
-# seed()
-#--------------------------------------------------------------------------#
-
-=head2 C<seed>
+=method C<seed>
 
  $rv = $prng->seed( @seeds );
 
@@ -109,12 +74,7 @@ sub seed {
     srand($_[0]);
 }
 
-
-#--------------------------------------------------------------------------#
-# next()
-#--------------------------------------------------------------------------#
-
-=head2 C<next>
+=method C<next>
 
  $rnd = $prng->next();
 
@@ -129,36 +89,23 @@ sub next {
     return $rnd;	
 }
 
-1; #this line is important and will help the module return a true value
+1;
+
 __END__
 
-=head1 BUGS
+=head1 SYNOPSIS
 
-Please report bugs using the CPAN Request Tracker at 
+  use Math::Random::OO::Uniform;
+  push @prngs,
+      Math::Random::OO::Uniform->new(),     # range [0,1)
+      Math::Random::OO::Uniform->new(5),    # range [0,5)
+      Math::Random::OO::Uniform->new(-1,1); # range [-1,1)
+  $_->seed(42) for @prngs;
+  print( $_->next() . "\n" ) for @prngs;
+  
+=head1 DESCRIPTION
 
-http://rt.cpan.org/NoAuth/Bugs.html?Dist=Math-Random-OO
-
-=head1 AUTHOR
-
-David A. Golden (DAGOLDEN)
-
-dagolden@dagolden.com
-
-http://dagolden.com/
-
-=head1 COPYRIGHT
-
-Copyright (c) 2004 by David A. Golden
-
-This program is free software; you can redistribute
-it and/or modify it under the same terms as Perl itself.
-
-The full text of the license can be found in the
-LICENSE file included with this module.
-
-
-=head1 SEE ALSO
-
-L<Math::Random::OO>
+This subclass of L<Math::Random::OO> generates random reals from a uniform
+probability distribution.
 
 =cut

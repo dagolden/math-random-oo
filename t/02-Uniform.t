@@ -49,8 +49,8 @@ BEGIN {
 }
 
 use Test::More tests => (4 + $test_program);
-use Test::Number::Delta within => 1e-5;
-use Test::MockRandom 'Math::Random::OO::Uniform';
+use Test::Number::Delta 0.14 within => 1e-5;
+use Test::MockRandom 0.95 'Math::Random::OO::Uniform';
 BEGIN { Test::MockRandom->export_srand_to('Math::Random::OO::Uniform') }
 BEGIN { use_ok( 'Math::Random::OO::Uniform' ); }
 
